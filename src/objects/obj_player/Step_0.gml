@@ -9,12 +9,22 @@ key_dash = keyboard_check_pressed(vk_shift) || (gamepad_button_check_pressed(0,g
 key_grapple = mouse_check_button_pressed(mb_left) || (gamepad_button_check_pressed(0,gp_shoulderrb));
 key_release = mouse_check_button_pressed(mb_right) || (gamepad_button_check_pressed(0,gp_shoulderlb));
 
+dash_duration = max(dash_duration - 1, 0);
+
 //---------MOVEMENT
 	
 	var _move = key_right - key_left;	// Direction of movement
 	hsp = _move * walk_speed;			// Speed of horizontal movement
 	vsp = vsp + grav;					// Apply gravity
-		
+//---------DASH
+
+if(key_dash)
+{
+	dash_duration = 10;
+	hsp = dash_spd; 
+	vsp = 0;
+}
+
 //---------GRAPPLE
 
 if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall))
