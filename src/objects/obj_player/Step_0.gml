@@ -14,12 +14,7 @@ key_release = mouse_check_button_pressed(mb_right) || (gamepad_button_check_pres
 	var _move = key_right - key_left;	// Direction of movement
 	hsp = _move * walk_speed;			// Speed of horizontal movement
 	vsp = vsp + grav;					// Apply gravity
-	
-//---------DASH
-
-	if (key_dash)
-	
-	
+		
 //---------GRAPPLE
 
 if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall))
