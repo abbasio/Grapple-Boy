@@ -1,0 +1,6 @@
+enum states 
+{
+	normal,
+	swing
+}
+
