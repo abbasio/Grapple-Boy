@@ -1,3 +1,6 @@
+//Personal note: set more variables!
+//For example: Instead of constantly doing collision checks for being on the floor, set a variable "onthefloor = 1" if the player is colliding with floor
+
 //---------PLAYER INPUT
 
 // Read keyboard or gamepad values
@@ -5,25 +8,26 @@
 key_left = keyboard_check(ord("A")) || (gamepad_axis_value(0,gp_axislh)<0);				// Returns a float, 0 or 1
 key_right = keyboard_check(ord("D")) || (gamepad_axis_value(0,gp_axislh)>0);			// Returns a float, 0 or 1
 key_jump = keyboard_check_pressed(vk_space) || (gamepad_button_check_pressed(0,gp_face1));		// Returns a bool, false or true
-key_dash = keyboard_check_pressed(vk_shift) || (gamepad_button_check_pressed(0,gp_face2));
+//key_dash = keyboard_check_pressed(vk_shift) || (gamepad_button_check_pressed(0,gp_face2));
 key_grapple = mouse_check_button_pressed(mb_left) || (gamepad_button_check_pressed(0,gp_shoulderrb));
 key_release = mouse_check_button_pressed(mb_right) || (gamepad_button_check_pressed(0,gp_shoulderlb));
 
-dash_duration = max(dash_duration - 1, 0);
+//dash_duration = max(dash_duration - 1, 0);
 
 //---------MOVEMENT
 	
 	var _move = key_right - key_left;	// Direction of movement
 	hsp = _move * walk_speed;			// Speed of horizontal movement
 	vsp = vsp + grav;					// Apply gravity
+	
 //---------DASH
 
-if(key_dash)
-{
-	dash_duration = 10;
-	hsp = dash_spd; 
-	vsp = 0;
-}
+//if(key_dash)
+//{
+	//dash_duration = 10;
+	//hsp = dash_spd; 
+	//vsp = 0;
+//}
 
 //---------GRAPPLE
 
@@ -110,7 +114,6 @@ if (place_meeting(x, y + vsp, obj_wall))
 
 
 y += vsp;
-
 
 
 //---------END OF ROOM

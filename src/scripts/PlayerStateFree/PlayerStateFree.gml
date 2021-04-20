@@ -13,7 +13,30 @@ function PlayerStateFree()
 		vsp = -jump_speed;
 	}
 	
+	
+//---------ANIMATION
 
+if(!place_meeting(x, y + 1, obj_wall))
+{
+	sprite_index = spr_jumping;
+	image_speed = 0;
+	if(sign(vsp) > 0) image_index = 1; else image_index = 0;
+	
+}
+else
+{
+	image_speed = 1;
+	if (hsp == 0)  //Note: double equals is for checking whether something is equal to 0, single equals is for assigning a value of 0
+	{
+		sprite_index = spr_player;
+	}
+	else
+	{
+		sprite_index = spr_running;
+	}
+}
+
+if (hsp != 0 ) image_xscale = sign(hsp);
 	
 	
 

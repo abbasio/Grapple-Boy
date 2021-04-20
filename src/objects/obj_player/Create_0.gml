@@ -14,9 +14,9 @@ jumps = 0; //Stored number of jumps available
 
 jumps_max = 2; //maximum number of allowed jumps
 
-dash_spd = 50;
+//dash_spd = 50;
 
-dash_duration = 0;
+//dash_duration = 0;
 
 gamepad_set_axis_deadzone(0,0.2)
 
