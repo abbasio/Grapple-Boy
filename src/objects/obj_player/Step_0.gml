@@ -29,6 +29,7 @@ key_release = mouse_check_button_pressed(mb_right) || (gamepad_button_check_pres
 	//vsp = 0;
 //}
 
+
 //---------GRAPPLE
 
 if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall))

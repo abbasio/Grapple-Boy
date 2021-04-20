@@ -34,9 +34,13 @@ else
 	{
 		sprite_index = spr_running;
 	}
+
+if (hsp != 0) image_xscale = sign(hsp);
+
 }
 
-if (hsp != 0 ) image_xscale = sign(hsp);
+
+	
 	
 	
 
