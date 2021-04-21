@@ -14,6 +14,8 @@ jumps = 0; //Stored number of jumps available
 
 jumps_max = 2; //maximum number of allowed jumps
 
+hascontrol = true;
+
 //dash_spd = 50;
 
 //dash_duration = 0;
