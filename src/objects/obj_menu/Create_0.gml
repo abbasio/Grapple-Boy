@@ -1,4 +1,6 @@
 /// @description GUI/Vars/Menu setup
+#macro SAVEFILE "save.sav" //generates a file containing the information in quotes
+
 
 gui_width = display_get_gui_width();
 gui_height = display_get_gui_height();

@@ -31,7 +31,22 @@ if(menu_x > gui_width + 150) && (menu_committed != -1) //If the menu has gone of
 {
 	switch(menu_committed) //Chooses outcome based on which menu selection was chosen
 	{
-		case 2: default: SlideTransition(transition_mode.NEXT); break; //Use the SlideTransition function, choosing the mode "NEXT"
+		case 2: SlideTransition(transition_mode.NEXT); break; //Use the SlideTransition function, choosing the mode "NEXT"
+		case 1: 
+		{
+			if(!file_exists(SAVEFILE)) //Checks to see if SAVEFILE exists or not
+			{
+				SlideTransition(transition_mode.NEXT);
+			}
+			else
+			{
+				var file = file_text_open_read(SAVEFILE); //Opens SAVEFILE for the purpose of reading it
+				var target = file_text_read_real(file); //Reads the real number written in SAVEFILE
+				file_text_close(file); //Closes SAVEFILE
+				SlideTransition(transition_mode.GOTO, target); //Moves to the target room written in SAVEFILE
+			}
+		}
+		break;
 		case 0: game_end(); break;
 	}
 	
