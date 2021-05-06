@@ -1,7 +1,7 @@
 /// @description Auto Save
 
 //---------OVERWRITE OLD SAVE
-if (file_exists(SAVEFILE)) file_delete(SAVEFILE);
+if (file_exists(SAVEFILE)) file_delete(SAVEFILE); //If a savefile already exists, delete it
 
 //---------CREATE NEW SAVE
 var file;

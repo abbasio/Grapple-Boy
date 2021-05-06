@@ -17,10 +17,10 @@ enum transition_mode //Establishes multiple transition modes
 	INTRO
 }
 
-mode = transition_mode.INTRO;
+mode = transition_mode.INTRO; //Establishes a variable for the initial transition mode
 
 percent = 1; 
 
-target = room;
+target = room; //Sets a target room to transition to
 
 

@@ -1,31 +1,27 @@
 
 
-hsp = 0;  //hsp is the horizontal speed of the player
+hsp = 0;  //A variable for the default horizontal speed of the player
 
-vsp = 0;  //vsp is the vertical speed of the player
+vsp = 0;  //A variable for the default vertical speed of the player
 
-grav = 0.5;  //grav is for vertical speed (gravity)
+grav = 0.5;  //A variable for gravity, a modifier for vertical speed
 
-walk_speed = 4;  //walk_speed is for horizontal speed 
+walk_speed = 4;  //A variable for walk speed, a modifier for horizontal speed
 
-jump_speed = 8 //jump_speed is for the vertical speed of jump
+jump_speed = 8 //A variable for jump speed, a modifier for vertical speed
 
-jumps = 0; //Stored number of jumps available 
+jumps = 0; //A variable for the stored number of jumps available 
 
-jumps_max = 2; //maximum number of allowed jumps
+jumps_max = 2; //A variable for the maximum number of allowed jumps
 
-hascontrol = true;
+hascontrol = true; //A variable for whether the player has control or not
 
-//dash_spd = 50;
+gamepad_set_axis_deadzone(0,0.2) //Sets a deadzone for the controller
 
-//dash_duration = 0;
+state = states.normal; //A variable for the initial state of the player
 
-gamepad_set_axis_deadzone(0,0.2)
 
-state = states.normal;
 
-controller_angle = 0;
+cursor_sprite = spr_cursor; //Establishes a custom sprite for the cursor
 
-cursor_sprite = spr_cursor;
-
-window_set_cursor(cr_none);
+window_set_cursor(cr_none); //Removes the default cursor, leaving only the custom sprite

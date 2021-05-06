@@ -2,7 +2,7 @@
 
 //---------UPDATE DESTINATION 
 
-if (instance_exists(follow))
+if (instance_exists(follow)) //If there is a player object in existence 
 {
 	x_toward = follow.x //Returns x coordinate of 'follow'
 	y_toward = follow.y //Returns y coordinate of 'follow'

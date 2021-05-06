@@ -1,5 +1,3 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function PlayerStateSwing()
 {
 	var _ropeAngleAcceleration = -0.2 * dcos(ropeAngle);	//Defines how quickly player is accelerating along angles of pendulum's circle. dcos defines cosine, using degrees. NOTE: Replace -0.2 with variable
@@ -12,7 +10,7 @@ function PlayerStateSwing()
 	ropeX = grappleX + lengthdir_x(ropeLength, ropeAngle); 
 	ropeY = grappleY + lengthdir_y(ropeLength, ropeAngle);
 	
-	// Move char
+	// Move character
 	hsp = ropeX - x; 
 	vsp = ropeY - y;
 	

@@ -1,6 +1,6 @@
 /// @description Progress transition
 
-if (mode != transition_mode.OFF)
+if (mode != transition_mode.OFF) //If we are not in the OFF transition mode
 {
 	if (mode == transition_mode.INTRO)
 	{
@@ -14,7 +14,7 @@ if (mode != transition_mode.OFF)
 
 if (percent == 1.2) || (percent == 0)
 {
-	switch (mode)
+	switch (mode) //Switches the mode
 	{
 		case transition_mode.INTRO: //Transition at the start of the game
 		{
