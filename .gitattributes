@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Fix files being classified as Yacc instead of GML
+*.yy linguist-language=GML
