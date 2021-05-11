@@ -33,6 +33,7 @@ else
 
 if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall)) //If the grapple key is pressed while the cursor is on a wall object
 {
+	ScreenShake (5,10);
 	grappleX = mouse_x; //Establishes the x position of the rope end point as the x position of the mouse
 	grappleY = mouse_y; //Establishes the y position of the rope end point as the y position of the mouse 
 	ropeX = x; //Establishes the x position of the rope origin at the x position of the player
@@ -108,7 +109,7 @@ y += vsp;
 
 //---------DEATH
 
-if (place_meeting(x + hsp, y + vsp, obj_spike))		// If colliding with a spiked object
-{
-	room_restart();										// Restart room
-}
+//if (place_meeting(x + hsp, y + vsp, obj_spike))		// If colliding with a spiked object
+//{
+	//room_restart();										// Restart room
+//}

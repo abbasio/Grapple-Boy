@@ -14,6 +14,7 @@ enum transition_mode //Establishes multiple transition modes
 	NEXT,
 	GOTO,
 	RESTART,
+	DEATH,
 	INTRO
 }
 

@@ -23,6 +23,7 @@ if(menu_control) //if we have menu control
 	{
 		menu_x_target = gui_width + 200; //Sends the menu back off to the right off the screen
 		menu_committed = menu_cursor; //Designates what menu item was selected
+		ScreenShake(4,30);
 		menu_control = false; //Removes control over menu after an item has been selected
 	}
 }

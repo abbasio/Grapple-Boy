@@ -10,3 +10,10 @@ view_h_half = camera_get_view_height(cam) * 0.5; //Establishes half of the viewf
 
 x_toward = xstart;   //Designates the x location the camera moves towards
 y_toward = ystart;   //Designates the y location the camera moves towards
+
+//---------SCREENSHAKE
+
+shake_length = 0; //Duration of screenshake, in frames
+shake_mag = 0; //Strength of screenshake, in pixels
+shake_remain = 0; //Strength of screenshake over time
+buff = 32; //Adds buffer to camera position

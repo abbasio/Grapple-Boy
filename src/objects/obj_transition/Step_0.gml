@@ -33,6 +33,12 @@ if (percent == 1.2) || (percent == 0)
 			room_goto(target);
 			break;
 		}
+		case transition_mode.DEATH: //Transition for dying 
+		{
+			mode = transition_mode.INTRO;
+			room_restart();
+			break;
+		}
 		case transition_mode.RESTART: //Transition for restarting the game 
 		{
 			game_restart();
