@@ -4,7 +4,8 @@ function PlayerStateSwing()
 	ropeAngleVelocity += _ropeAngleAcceleration;			//Rope velocity is equal to the intial velocity (0) plus the acceleration
 	ropeAngle += ropeAngleVelocity;							//Changes rope angle
 	
-	//ropeAngleVelocity *= 0.99; //Dampener - we slowly reduce velocity at the top/bottom, represents air friction. Can remove.
+	
+	ropeAngleVelocity *= 0.99; //Dampener - we slowly reduce velocity at the top/bottom, represents air friction. Can remove.
 	
 	// Defines end of rope movement
 	ropeX = grappleX + lengthdir_x(ropeLength, ropeAngle); 

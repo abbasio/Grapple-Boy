@@ -27,13 +27,27 @@ else
 	var _move = key_right - key_left;	// Direction of movement
 	hsp = _move * walk_speed;			// Applies the walk speed modifier to the horizontal movement
 	vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
-	
+//---------STATES
 
+switch (state) //Switches the state of the player 
+{
+	case states.normal: //If the player is in the normal state 
+		PlayerStateFree(); //Execute the script 'PlayerStateFree'
+		break; //Ends loop
+	case states.swing: //If the player is in the swing state 
+		PlayerStateSwing(); //Execute the script 'PlayerStateSwing'
+		break; //Ends loop
+	case states.death:
+		PlayerStateDeath();
+		break;
+}
+	
 //---------GRAPPLE
 
 if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall)) //If the grapple key is pressed while the cursor is on a wall object
 {
-	ScreenShake (5,10);
+	ScreenShake (2,10);
+	audio_play_sound(snd_grapple,5,false);
 	grappleX = mouse_x; //Establishes the x position of the rope end point as the x position of the mouse
 	grappleY = mouse_y; //Establishes the y position of the rope end point as the y position of the mouse 
 	ropeX = x; //Establishes the x position of the rope origin at the x position of the player
@@ -44,15 +58,7 @@ if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall)) //If the gra
 	state = states.swing //Switches to the swing state - see Scripts>PlayerStateSwing
 }
 
-switch (state) //Switches the state of the player 
-{
-	case states.normal: //If the player is in the normal state 
-		PlayerStateFree(); //Execute the script 'PlayerStateFree'
-		break; //Ends loop
-	case states.swing: //If the player is in the swing state 
-		PlayerStateSwing(); //Execute the script 'PlayerStateSwing'
-		break; //Ends loop
-}
+
 
 //---------HORIZONTAL COLLISION
 
@@ -93,6 +99,7 @@ if (place_meeting(x, y + vsp, obj_wall))
 	while (!place_meeting(x, y + sign(vsp), obj_wall))
 	{
 		y += sign(vsp);	
+		
 	}
 	if (state == states.swing)
 	{
