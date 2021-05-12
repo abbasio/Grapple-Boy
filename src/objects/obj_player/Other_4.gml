@@ -1,4 +1,4 @@
-/// @description Auto Save
+/// @desc Autosave
 
 //---------OVERWRITE OLD SAVE
 if (file_exists(SAVEFILE)) file_delete(SAVEFILE); //If a savefile already exists, delete it

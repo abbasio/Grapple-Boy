@@ -31,12 +31,15 @@ if(menu_control) //if we have menu control
 	}
 }
 
+//---------MENU SELECTION
+
 if(menu_x > gui_width + 150) && (menu_committed != -1) //If the menu has gone off to the right, and an option has been selected
 {
 	switch(menu_committed) //Chooses outcome based on which menu selection was chosen
 	{
-		case 2: SlideTransition(transition_mode.NEXT); break; //Use the SlideTransition function, choosing the mode "NEXT"
-		case 1: 
+		case 2: SlideTransition(transition_mode.NEXT); //Use the SlideTransition function, choosing the mode "NEXT"
+		break; 
+		case 1: //If 'Continue' is selected
 		{
 			if(!file_exists(SAVEFILE)) //Checks to see if SAVEFILE exists or not
 			{
@@ -51,7 +54,8 @@ if(menu_x > gui_width + 150) && (menu_committed != -1) //If the menu has gone of
 			}
 		}
 		break;
-		case 0: game_end(); break;
+		case 0: game_end(); //IF 'Exit' is selected, end the game
+		break;
 	}
 	
 }

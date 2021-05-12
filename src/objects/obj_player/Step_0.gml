@@ -11,7 +11,7 @@ key_jump = keyboard_check_pressed(vk_space) || (gamepad_button_check_pressed(0,g
 key_grapple = mouse_check_button_pressed(mb_left) || (gamepad_button_check_pressed(0,gp_shoulderrb)); //Establishes left mouse click or right shoulder button as the grapple key
 key_release = mouse_check_button_pressed(mb_right) || (gamepad_button_check_pressed(0,gp_shoulderlb)); //Establishes right mouse click or left shoulder button as the grapple release key
 }
-else
+else //When the player does not have control
 {
 	key_right = 0
 	key_left = 0
@@ -27,6 +27,7 @@ else
 	var _move = key_right - key_left;	// Direction of movement
 	hsp = _move * walk_speed;			// Applies the walk speed modifier to the horizontal movement
 	vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
+
 //---------STATES
 
 switch (state) //Switches the state of the player 
@@ -37,17 +38,17 @@ switch (state) //Switches the state of the player
 	case states.swing: //If the player is in the swing state 
 		PlayerStateSwing(); //Execute the script 'PlayerStateSwing'
 		break; //Ends loop
-	case states.death:
-		PlayerStateDeath();
-		break;
-}
+	case states.death: //If the player is in the death state
+		PlayerStateDeath(); //Execute the script 'PlayerStateDeath'
+		break; //Ends loop
+} 
 	
 //---------GRAPPLE
 
 if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall)) //If the grapple key is pressed while the cursor is on a wall object
 {
-	ScreenShake (2,10);
-	audio_play_sound(snd_grapple,5,false);
+	ScreenShake (2,10); //Shakes the screen by 2 pixels for 10 frames
+	audio_play_sound(snd_grapple,5,false); //Plays the grapple sound
 	grappleX = mouse_x; //Establishes the x position of the rope end point as the x position of the mouse
 	grappleY = mouse_y; //Establishes the y position of the rope end point as the y position of the mouse 
 	ropeX = x; //Establishes the x position of the rope origin at the x position of the player
@@ -114,9 +115,3 @@ y += vsp;
 
 
 
-//---------DEATH
-
-//if (place_meeting(x + hsp, y + vsp, obj_spike))		// If colliding with a spiked object
-//{
-	//room_restart();										// Restart room
-//}

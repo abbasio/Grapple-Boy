@@ -1,6 +1,8 @@
 /// @description Death timer
 
 // Adds a small pause between player death and transition
-// Note: This seems the place to add a 'game over' sequence
 
-SlideTransition(transition_mode.DEATH);
+//---------TRANSITION
+
+SlideTransition(transition_mode.DEATH); //Once Alarm [0] goes off, execute the death transition
+										//See PlayerStateDeath

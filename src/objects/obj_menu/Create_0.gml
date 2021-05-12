@@ -1,4 +1,6 @@
 /// @description GUI/Vars/Menu setup
+
+
 #macro SAVEFILE "save.sav" //generates a file containing the information in quotes
 
 
