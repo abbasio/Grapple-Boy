@@ -15,6 +15,7 @@ if (keyboard_check(vk_anykey)) //If any key is held down
 {
 	letters += (2 * spd) //Text speed increases by 2x
 }
+
 text_current = string_copy(text, 1, floor(letters)); //Sets the current text to be 1 letter from the 'letters' string
 
 draw_set_font(f_sign); //Sets the font for the signpost
