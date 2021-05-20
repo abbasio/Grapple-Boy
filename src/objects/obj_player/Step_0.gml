@@ -5,11 +5,11 @@
 
 if (hascontrol) //If the player has control
 {
-key_left = keyboard_check(ord("A")) || (gamepad_axis_value(0,gp_axislh)<0);				// Establishes 'A' or left on the joystick as the left key
-key_right = keyboard_check(ord("D")) || (gamepad_axis_value(0,gp_axislh)>0);			// Establishes 'D' or right on the joystick as the right key
-key_jump = keyboard_check_pressed(vk_space) || (gamepad_button_check_pressed(0,gp_face1));	//Establishes 'space' or the bottom face button as the jump key	
-key_grapple = mouse_check_button_pressed(mb_left) || (gamepad_button_check_pressed(0,gp_shoulderrb)); //Establishes left mouse click or right shoulder button as the grapple key
-key_release = mouse_check_button_pressed(mb_right) || (gamepad_button_check_pressed(0,gp_shoulderlb)); //Establishes right mouse click or left shoulder button as the grapple release key
+	key_left = keyboard_check(ord("A")) || (gamepad_axis_value(0, gp_axislh) < 0);				// Establishes 'A' or left on the joystick as the left key
+	key_right = keyboard_check(ord("D")) || (gamepad_axis_value(0, gp_axislh) > 0);			// Establishes 'D' or right on the joystick as the right key
+	key_jump = keyboard_check_pressed(vk_space) || (gamepad_button_check_pressed(0, gp_face1));	//Establishes 'space' or the bottom face button as the jump key	
+	key_grapple = mouse_check_button_pressed(mb_left) || (gamepad_button_check_pressed(0, gp_shoulderrb)); //Establishes left mouse click or right shoulder button as the grapple key
+	key_release = mouse_check_button_pressed(mb_right) || (gamepad_button_check_pressed(0, gp_shoulderlb)); //Establishes right mouse click or left shoulder button as the grapple release key
 }
 else //When the player does not have control
 {
@@ -18,15 +18,15 @@ else //When the player does not have control
 	key_jump = 0
 	key_grapple = 0
 	key_release = 0
-
 }
 
 
 //---------MOVEMENT
 	
-	var _move = key_right - key_left;	// Direction of movement
-	hsp = _move * walk_speed;			// Applies the walk speed modifier to the horizontal movement
-	vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
+var _move = key_right - key_left;	// Direction of movement
+hsp = _move * walk_speed;			// Applies the walk speed modifier to the horizontal movement
+vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
+
 
 //---------STATES
 
@@ -42,13 +42,14 @@ switch (state) //Switches the state of the player
 		PlayerStateDeath(); //Execute the script 'PlayerStateDeath'
 		break; //Ends loop
 } 
-	
+
+
 //---------GRAPPLE
 
-if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall)) //If the grapple key is pressed while the cursor is on a wall object
+if (key_grapple && position_meeting (mouse_x, mouse_y, obj_wall)) //If the grapple key is pressed while the cursor is on a wall object
 {
 	ScreenShake (2,10); //Shakes the screen by 2 pixels for 10 frames
-	audio_play_sound(snd_grapple,5,false); //Plays the grapple sound
+	audio_play_sound(snd_grapple, 5, false); //Plays the grapple sound
 	grappleX = mouse_x; //Establishes the x position of the rope end point as the x position of the mouse
 	grappleY = mouse_y; //Establishes the y position of the rope end point as the y position of the mouse 
 	ropeX = x; //Establishes the x position of the rope origin at the x position of the player
@@ -58,7 +59,6 @@ if (key_grapple) && (position_meeting (mouse_x, mouse_y, obj_wall)) //If the gra
 	ropeLength = point_distance(grappleX, grappleY, x, y); //Length of rope
 	state = states.swing //Switches to the swing state - see Scripts>PlayerStateSwing
 }
-
 
 
 //---------HORIZONTAL COLLISION

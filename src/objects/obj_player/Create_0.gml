@@ -1,4 +1,4 @@
-
+//---------PLAYER
 
 hsp = 0;  //A variable for the default horizontal speed of the player
 
@@ -16,11 +16,13 @@ jumps_max = 2; //A variable for the maximum number of allowed jumps
 
 hascontrol = true; //A variable for whether the player has control or not
 
-gamepad_set_axis_deadzone(0,0.2) //Sets a deadzone for the controller
-
 state = states.normal; //A variable for the initial state of the player
 
+//---------CONTROLLER
 
+gamepad_set_axis_deadzone(0, 0.2) //Sets a deadzone for the controller
+
+//---------CURSOR
 
 cursor_sprite = spr_cursor; //Establishes a custom sprite for the cursor
 
