@@ -7,7 +7,7 @@ I am starting from scratch, and documenting the code so that other aspiring deve
 
 Each commit features a new concept that I have learned, applied, and clearly documented. 
 
-The vast majority of actual code lies under src>objects and src>scripts
+The vast majority of actual code can be found in .gml files under src>objects and src>scripts
 
 Here is a link to the actual game itself, in it's current state: https://github.com/Om-Abb/Test/blob/main/src/Test.zip
 
