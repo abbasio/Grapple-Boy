@@ -1,4 +1,4 @@
-//---------PLAYER
+#region//---------PLAYER
 
 hsp = 0;  //A variable for the default horizontal speed of the player
 
@@ -18,12 +18,18 @@ hascontrol = true; //A variable for whether the player has control or not
 
 state = states.normal; //A variable for the initial state of the player
 
-//---------CONTROLLER
+#endregion
+
+#region//---------CONTROLLER
 
 gamepad_set_axis_deadzone(0, 0.2) //Sets a deadzone for the controller
 
-//---------CURSOR
+#endregion
+
+#region//---------CURSOR
 
 cursor_sprite = spr_cursor; //Establishes a custom sprite for the cursor
 
 window_set_cursor(cr_none); //Removes the default cursor, leaving only the custom sprite
+
+#endregion

@@ -1,8 +1,8 @@
 /// @description Control Menu
 
-//Menu appearing
+//---------MENU APPEARING
 
-menu_x += (menu_x_target - menu_x) / menu_speed
+menu_y += ((menu_y_target - menu_y) / menu_speed); //Dictates speed at which menu's initial y position approaches the desired y position
 
 //---------MENU CONTROLS
 
@@ -25,15 +25,16 @@ if(menu_control) //if we have menu control
 	{
 		audio_play_sound(snd_select,2,false);
 		ScreenShake(4,30);
-		menu_x_target = gui_width + 200; //Sends the menu back off to the right off the screen
+		menu_y_target = gui_height * 2; //Sends the menu back down off screen
 		menu_committed = menu_cursor; //Designates what menu item was selected
 		menu_control = false; //Removes control over menu after an item has been selected
 	}
+	
 }
 
 //---------MENU SELECTION
 
-if(menu_x > gui_width + 150) && (menu_committed != -1) //If the menu has gone off to the right, and an option has been selected
+if(menu_y > gui_height * 1.5) && (menu_committed != -1) //If the menu has gone down and an option has been selected
 {
 	switch(menu_committed) //Chooses outcome based on which menu selection was chosen
 	{

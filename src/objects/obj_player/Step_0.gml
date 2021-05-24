@@ -1,7 +1,7 @@
 //Personal note: set more variables!
 //For example: Instead of constantly doing collision checks for being on the floor, set a variable "onthefloor = 1" if the player is colliding with floor
 
-//---------PLAYER INPUT
+#region //---------PLAYER INPUT
 
 if (hascontrol) //If the player has control
 {
@@ -20,15 +20,16 @@ else //When the player does not have control
 	key_release = 0
 }
 
+#endregion
 
-//---------MOVEMENT
+#region //---------MOVEMENT
 	
 var _move = key_right - key_left;	// Direction of movement
 hsp = _move * walk_speed;			// Applies the walk speed modifier to the horizontal movement
 vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
 
-
-//---------STATES
+#endregion
+#region //---------STATES
 
 switch (state) //Switches the state of the player 
 {
@@ -43,8 +44,8 @@ switch (state) //Switches the state of the player
 		break; //Ends loop
 } 
 
-
-//---------GRAPPLE
+#endregion
+#region //---------GRAPPLE
 
 if (key_grapple && position_meeting (mouse_x, mouse_y, obj_wall)) //If the grapple key is pressed while the cursor is on a wall object
 {
@@ -60,8 +61,8 @@ if (key_grapple && position_meeting (mouse_x, mouse_y, obj_wall)) //If the grapp
 	state = states.swing //Switches to the swing state - see Scripts>PlayerStateSwing
 }
 
-
-//---------HORIZONTAL COLLISION
+#endregion
+#region //---------HORIZONTAL COLLISION
 
 // place_meeting checks if location will overlap,
 // x and y denote position of the player object.
@@ -112,6 +113,6 @@ if (place_meeting(x, y + vsp, obj_wall))
 
 
 y += vsp;
-
+#endregion
 
 
