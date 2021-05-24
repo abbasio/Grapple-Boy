@@ -11,4 +11,6 @@ The vast majority of actual code lies under src>objects and src>scripts
 
 Here is a link to the actual game itself, in it's current state: https://github.com/Om-Abb/Test/blob/main/src/Test.zip
 
+Video log of progress available here: https://www.youtube.com/watch?v=4FOur-R5hIk&list=PLxv1Ve5yyJV5ckg3dkQpk9c4pfJhF8aF3
+
 
