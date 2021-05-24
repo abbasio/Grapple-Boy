@@ -1,5 +1,5 @@
 # Test
-This is an ongoing development project as I learn to code with GML. 
+This is an ongoing development project as I learn to code using Gamemaker Studio 2 
 
 The ultimate goal is to create a 2D platformer with a grappling hook element.
 
