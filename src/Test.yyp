@@ -15,6 +15,7 @@
     {"id":{"name":"snd_foot2","path":"sounds/snd_foot2/snd_foot2.yy",},"order":8,},
     {"id":{"name":"PlayerStateSwing","path":"scripts/PlayerStateSwing/PlayerStateSwing.yy",},"order":1,},
     {"id":{"name":"spr_death","path":"sprites/spr_death/spr_death.yy",},"order":8,},
+    {"id":{"name":"spr_title_anim","path":"sprites/spr_title_anim/spr_title_anim.yy",},"order":12,},
     {"id":{"name":"obj_cursor","path":"objects/obj_cursor/obj_cursor.yy",},"order":4,},
     {"id":{"name":"ts_basic","path":"tilesets/ts_basic/ts_basic.yy",},"order":0,},
     {"id":{"name":"PlayerStateDeath","path":"scripts/PlayerStateDeath/PlayerStateDeath.yy",},"order":4,},
