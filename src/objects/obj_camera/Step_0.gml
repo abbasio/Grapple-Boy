@@ -37,3 +37,17 @@ shake_remain = max(0, shake_remain - ((1/shake_length) * shake_mag)); //Establis
 camera_set_view_pos(cam, x - view_w_half, y - view_h_half); //Places player in center of viewfinder, instead of top left
 
 #endregion
+
+#region//---------PARALLAX
+
+if (layer_exists(cloud_layer)) //If there is a cloud layer in the background
+{
+	layer_x(cloud_layer, x / 2);
+}
+
+if (layer_exists(mountain_layer))
+{
+	layer_x(mountain_layer, x / 4);
+}
+
+#endregion
