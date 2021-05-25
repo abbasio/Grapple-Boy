@@ -13,4 +13,4 @@ Here is a link to the game itself, in it's current state: https://github.com/Om-
 
 Video log of progress available here: https://www.youtube.com/watch?v=4FOur-R5hIk&list=PLxv1Ve5yyJV5ckg3dkQpk9c4pfJhF8aF3
 
-
+Assets used: https://vnitti.itch.io/grassy-mountains-parallax-background
