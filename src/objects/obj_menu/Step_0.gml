@@ -1,12 +1,19 @@
 /// @description Control Menu
 
-//---------MENU APPEARING
+#region//---------MENU APPEARING
 
 menu_y += ((menu_y_target - menu_y) / menu_speed); //Dictates speed at which menu's initial y position approaches the desired y position
 
-//---------MENU CONTROLS
+if (menu_y = menu_y_target)
+{
+	menu_control = true;
+}
 
-if(menu_control) //if we have menu control
+#endregion
+
+#region//---------MENU CONTROLS
+
+if (menu_control) //If we have menu control
 {
 	if (keyboard_check_pressed(ord("W"))) || (keyboard_check_pressed(vk_up))
 	{
@@ -32,31 +39,38 @@ if(menu_control) //if we have menu control
 	
 }
 
-//---------MENU SELECTION
 
-if(menu_y > gui_height * 1.5) && (menu_committed != -1) //If the menu has gone down and an option has been selected
-{
-	switch(menu_committed) //Chooses outcome based on which menu selection was chosen
+#endregion
+
+#region//---------MENU SELECTION
+
+if (menu_committed !=-1) && (menu_y > gui_height * 1.6) //If the an item has been selected and the menu has gone down 
 	{
-		case 2: SlideTransition(transition_mode.NEXT); //Use the SlideTransition function, choosing the mode "NEXT"
-		break; 
-		case 1: //If 'Continue' is selected
+		switch(menu_committed) //Chooses outcome based on which menu selection was chosen
 		{
-			if(!file_exists(SAVEFILE)) //Checks to see if SAVEFILE exists or not
-			{
-				SlideTransition(transition_mode.NEXT);
-			}
-			else
-			{
-				var file = file_text_open_read(SAVEFILE); //Opens SAVEFILE for the purpose of reading it
-				var target = file_text_read_real(file); //Reads the real number written in SAVEFILE
-				file_text_close(file); //Closes SAVEFILE
-				SlideTransition(transition_mode.GOTO, target); //Moves to the target room written in SAVEFILE
-			}
+			case 2:									//If 'New Game' is selected
+			SlideTransition(transition_mode.NEXT);	//Start the first room
+			break; 
+			case 1:								//If 'Continue' is selected
+				{
+					if(!file_exists(SAVEFILE)) //Checks to see if SAVEFILE exists or not
+					{
+						SlideTransition(transition_mode.NEXT); //If SAVEFILE doesn't exist, start the first room
+					}
+					else //If SAVEFILE does exist
+					{
+						var file = file_text_open_read(SAVEFILE); //Opens SAVEFILE for the purpose of reading it
+						var target = file_text_read_real(file); //Reads the real number written in SAVEFILE
+						file_text_close(file); //Closes SAVEFILE
+						SlideTransition(transition_mode.GOTO, target); //Moves to the target room written in SAVEFILE
+					}
+				}
+			break;
+			case 0:		//If 'Exit' is selected
+			game_end(); //End the game
+			break;
 		}
-		break;
-		case 0: game_end(); //IF 'Exit' is selected, end the game
-		break;
-	}
+
 	
-}
+	}
+#endregion

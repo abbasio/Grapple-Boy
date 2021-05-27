@@ -1,4 +1,4 @@
-/// @description 
+/// @desc Setup
 
 spd = 0.25; //Variable for the speed of the text drawn in characters per frame
 letters = 0; //Variable for how many letters are being drawn to screen

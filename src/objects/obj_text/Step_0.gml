@@ -1,7 +1,9 @@
 /// @description Progress text
 
 //---------REMOVE PLAYER CONTROL
+
 with (obj_player) 
+
 if (hascontrol) 
 {
 	hascontrol = false;
@@ -23,7 +25,8 @@ draw_set_font(f_sign); //Sets the font for the signpost
 if (h==0) h = string_height(text); //Sets height of the text
 w = string_width(text_current); //Sets width of the box equal to the total width of current text
 
-//---------DESTROY
+
+#region//---------DESTROY
 if (letters >= length) && (keyboard_check_pressed(vk_anykey)) //Once the entire text is displayed and the player presses any key
 {
 	with (obj_player) //Restores control to player once text box is gone
@@ -34,3 +37,4 @@ if (letters >= length) && (keyboard_check_pressed(vk_anykey)) //Once the entire 
 	instance_destroy(); //Destroy the text instance
 	with(obj_camera) follow = obj_player; //Set the camera to follow the player again
 }
+#endregion

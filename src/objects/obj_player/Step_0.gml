@@ -1,6 +1,3 @@
-//Personal note: set more variables!
-//For example: Instead of constantly doing collision checks for being on the floor, set a variable "onthefloor = 1" if the player is colliding with floor
-
 #region //---------PLAYER INPUT
 
 if (hascontrol) //If the player has control
@@ -22,13 +19,6 @@ else //When the player does not have control
 
 #endregion
 
-#region //---------MOVEMENT
-	
-var _move = key_right - key_left;	// Direction of movement
-hsp = _move * walk_speed;			// Applies the walk speed modifier to the horizontal movement
-vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
-
-#endregion
 #region //---------STATES
 
 switch (state) //Switches the state of the player 
@@ -45,24 +35,35 @@ switch (state) //Switches the state of the player
 } 
 
 #endregion
+
 #region //---------GRAPPLE
 
-if (key_grapple && position_meeting (mouse_x, mouse_y, obj_wall)) //If the grapple key is pressed while the cursor is on a wall object
+if (key_grapple) && (state != states.swing) //If the grapple key is pressed, and we are not already in a swing state
 {
 	ScreenShake (2,10); //Shakes the screen by 2 pixels for 10 frames
 	audio_play_sound(snd_grapple, 5, false); //Plays the grapple sound
-	grappleX = mouse_x; //Establishes the x position of the rope end point as the x position of the mouse
-	grappleY = mouse_y; //Establishes the y position of the rope end point as the y position of the mouse 
+	grappleX = x + (grapple_length * image_xscale); //Establishes the x position of the rope end point as the x position of the mouse
+	grappleY = y - (grapple_length); //Establishes the y position of the rope end point as the y position of the mouse 
 	ropeX = x; //Establishes the x position of the rope origin at the x position of the player
 	ropeY = y; //Establishes the y position of the rope origin at the y position of the player 
-	ropeAngleVelocity = 0;   //Speed of swing
+	ropeAngleVelocity = (sqrt(sqr(hsp) + sqr(vsp)) * image_xscale) / 2;   //Speed of swing
 	ropeAngle = point_direction(grappleX, grappleY, x, y);  //Angle from wherever we are to wherever we click
 	ropeLength = point_distance(grappleX, grappleY, x, y); //Length of rope
-	state = states.swing //Switches to the swing state - see Scripts>PlayerStateSwing
+	
+	if collision_line(ropeX, ropeY, grappleX, grappleY, obj_wall, false, false) //If a wall objects exists along the grappling hook line 
+	{
+		ropeLength = point_distance(grappleX, grappleY, other.x, other.y);
+		state = states.swing //Switches to the swing state - see Scripts>PlayerStateSwing
+	}
 }
 
+
 #endregion
-#region //---------HORIZONTAL COLLISION
+
+#region //---------COLLISIONS
+
+
+//---------HORIZONTAL COLLISION
 
 // place_meeting checks if location will overlap,
 // x and y denote position of the player object.

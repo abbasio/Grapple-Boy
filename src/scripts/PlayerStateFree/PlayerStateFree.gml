@@ -1,6 +1,15 @@
 function PlayerStateFree()
 {
-	///---------DOUBLE JUMP
+	
+#region //---------MOVEMENT
+	
+var _move = key_right - key_left;	// Direction of movement
+hsp = _move * walk_speed;			// Applies the walk speed modifier to the horizontal movement
+vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
+
+#endregion
+	
+#region	//---------DOUBLE JUMP
 	
 	if (place_meeting(x, y + 1, obj_wall))	    //If player is on the ground
 	{
@@ -12,18 +21,29 @@ function PlayerStateFree()
 		vsp = -jump_speed;
 	}
 	
-	
-	//---------ANIMATION
+#endregion	
+
+
+
+
+
+
+#region	//---------ANIMATION
 
 	if(!place_meeting(x, y + 1, obj_wall)) //If the player is not colliding with any wall (ie: is in the air)
 	{
+
 		sprite_index = spr_jumping; //Switch to the jumping sprite
+		if (hsp != 0)
+		{
+			image_xscale = sign(hsp);
+		}
 		image_speed = 0; //Prevent animation
-		
-		// image_index = (sign(vsp) > 0);
+		image_index = (sign(vsp) > 0);
 		
 		if(sign(vsp) > 0) 
-			image_index = 1; 
+			image_index = 1;
+		
 		else 
 			image_index = 0; //If the player is going up, use the first frame of the animation
 																 //Otherwise, use the second frame of the animation
@@ -41,10 +61,12 @@ function PlayerStateFree()
 		}
 		else //When the player is in motion
 		{
+			image_xscale = sign(hsp);
 			sprite_index = spr_running; //Use the running sprite 
-			image_xscale = sign(hsp); //Switches the direction of the player sprite based on which direction the player is moving
+		
 		}
 
 	}
 
 }
+#endregion
