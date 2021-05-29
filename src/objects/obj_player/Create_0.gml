@@ -16,7 +16,11 @@ jumps_max = 2; //A variable for the maximum number of allowed jumps
 
 hascontrol = true; //A variable for whether the player has control or not
 
-grapple_length = 75; //A variable for the length of the grappling hook
+at_wall = false;
+
+on_ground = false;
+
+grapple_length = 90; //A variable for the length of the grappling hook
 
 state = states.normal; //A variable for the initial state of the player
 
@@ -25,6 +29,8 @@ state = states.normal; //A variable for the initial state of the player
 #region//---------CONTROLLER
 
 gamepad_set_axis_deadzone(0, 0.2) //Sets a deadzone for the controller
+
+window_set_cursor(cr_none);
 
 #endregion
 

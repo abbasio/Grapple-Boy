@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Menu, Text, and Camera",
+    "path": "folders/Objects/Menu, Text, and Camera.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_camera",

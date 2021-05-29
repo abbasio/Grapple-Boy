@@ -4,7 +4,7 @@
 
 menu_y += ((menu_y_target - menu_y) / menu_speed); //Dictates speed at which menu's initial y position approaches the desired y position
 
-if (menu_y = menu_y_target)
+if (menu_y = menu_y_target) 
 {
 	menu_control = true;
 }
@@ -44,7 +44,7 @@ if (menu_control) //If we have menu control
 
 #region//---------MENU SELECTION
 
-if (menu_committed !=-1) && (menu_y > gui_height * 1.6) //If the an item has been selected and the menu has gone down 
+if (menu_committed !=-1) && (menu_y > gui_height * 1.5) //If the an item has been selected and the menu has gone down 
 	{
 		switch(menu_committed) //Chooses outcome based on which menu selection was chosen
 		{

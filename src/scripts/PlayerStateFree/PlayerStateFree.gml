@@ -11,7 +11,7 @@ vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement
 	
 #region	//---------DOUBLE JUMP
 	
-	if (place_meeting(x, y + 1, obj_wall))	    //If player is on the ground
+	if (place_meeting(x, y + 1, obj_wall)) //If player is on the ground
 	{
 		jumps = jumps_max;                      //The max number of jumps are available
 	}
@@ -24,8 +24,22 @@ vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement
 #endregion	
 
 
+#region//---------BOUNCE
 
+if (place_meeting(x, y + 1, obj_boost))
+{
+	vsp = -vsp * 1.5;
+	jumps = 1;
+}
+#endregion
 
+#region//---------SPEED CAP
+
+if (vsp > 10)
+{
+	vsp = 10;
+}
+#endregion
 
 
 #region	//---------ANIMATION

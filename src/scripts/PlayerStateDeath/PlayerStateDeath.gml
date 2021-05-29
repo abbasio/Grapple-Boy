@@ -9,6 +9,7 @@ function PlayerStateDeath() {
 		if (hascontrol) //If the player currently has control
 		{
 				hascontrol = false; //Remove control
+				hsp = 0;
 				sprite_index = spr_death; //Change the player sprite to the death sprite
 				image_speed = 1; //Enable animation
 				audio_play_sound(snd_death,10,false); //Play the death sound 

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_cursor",
-    "path": "sprites/spr_cursor/spr_cursor.yy",
+    "name": "spr_boost",
+    "path": "sprites/spr_boost/spr_boost.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,11 +24,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Items",
+    "path": "folders/Objects/Items.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_cursor",
+  "name": "obj_boost",
   "tags": [],
   "resourceType": "GMObject",
 }

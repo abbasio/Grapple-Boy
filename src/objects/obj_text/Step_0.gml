@@ -13,7 +13,7 @@ if (hascontrol)
 
 letters += spd; //Number of letters visible increases by spd variable
 
-if (keyboard_check(vk_anykey)) //If any key is held down
+if (keyboard_check(vk_anykey)) && (letters >= 1) //If any key is held down
 {
 	letters += (2 * spd) //Text speed increases by 2x
 }

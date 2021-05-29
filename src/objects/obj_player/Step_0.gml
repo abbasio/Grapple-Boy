@@ -40,23 +40,31 @@ switch (state) //Switches the state of the player
 
 if (key_grapple) && (state != states.swing) //If the grapple key is pressed, and we are not already in a swing state
 {
-	ScreenShake (2,10); //Shakes the screen by 2 pixels for 10 frames
-	audio_play_sound(snd_grapple, 5, false); //Plays the grapple sound
-	grappleX = x + (grapple_length * image_xscale); //Establishes the x position of the rope end point as the x position of the mouse
-	grappleY = y - (grapple_length); //Establishes the y position of the rope end point as the y position of the mouse 
+	grappleX = x + (grapple_length * image_xscale); //Establishes the x position of the rope end point, at an angle in front of the player's position
+	grappleY = y - (grapple_length); //Establishes the y position of the rope end point  
 	ropeX = x; //Establishes the x position of the rope origin at the x position of the player
-	ropeY = y; //Establishes the y position of the rope origin at the y position of the player 
-	ropeAngleVelocity = (sqrt(sqr(hsp) + sqr(vsp)) * image_xscale) / 2;   //Speed of swing
+	ropeY = y; //Establishes the y position of the rope origin at the y position of the player
+	ropeAngleVelocity = (sqrt(sqr(hsp) + sqr(vsp)) * image_xscale) / 2;   //Speed of swing 
 	ropeAngle = point_direction(grappleX, grappleY, x, y);  //Angle from wherever we are to wherever we click
 	ropeLength = point_distance(grappleX, grappleY, x, y); //Length of rope
+	grapple_point = collision_line(ropeX, ropeY, grappleX, grappleY, obj_wall, false, false)
 	
-	if collision_line(ropeX, ropeY, grappleX, grappleY, obj_wall, false, false) //If a wall objects exists along the grappling hook line 
+	
+	if (grapple_point) 
 	{
-		ropeLength = point_distance(grappleX, grappleY, other.x, other.y);
-		state = states.swing //Switches to the swing state - see Scripts>PlayerStateSwing
+		//gp_x = grapple_point.x
+		//gp_y = grapple_point.y
+		//ropeAngle = point_direction(gp_x, gp_y, x, y);
+		//ropeLength = point_distance(gp_x, gp_y, x, y);
+		ScreenShake (2,10); //Shakes the screen by 2 pixels for 10 frames
+		audio_play_sound(snd_grapple, 5, false); //Plays the grapple sound
+		state = states.swing; //Switches to the swing state - see Scripts>PlayerStateSwing
+	}
+	else
+	{
+		state = states.normal;
 	}
 }
-
 
 #endregion
 

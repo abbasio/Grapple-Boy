@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Title",
+    "path": "folders/Sprites/Title.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_title_anim",
