@@ -4,8 +4,19 @@ function PlayerStateFree()
 #region //---------MOVEMENT
 	
 var _move = key_right - key_left;	// Direction of movement
-hsp = _move * walk_speed;			// Applies the walk speed modifier to the horizontal movement
+hsp += _move * walk_acceleration;			// Applies the walk speed modifier to the horizontal movement
+on_ground = (place_meeting(x, y + 1, obj_wall)); 
+if (_move == 0)
+{
+	var _friction = ground_friction;
+	if (!on_ground) _friction = air_friction;
+	hsp = Approach(hsp, 0, _friction);
+}
+
+hsp = clamp(hsp, -walk_speed, walk_speed);
+
 vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
+
 
 #endregion
 	
@@ -31,6 +42,10 @@ if (place_meeting(x, y + 1, obj_boost))
 	vsp = -vsp * 1.5;
 	jumps = 1;
 }
+//if (place_meeting (x + 1, y, obj_boost))
+//{
+	//hsp = - hsp;
+//}
 #endregion
 
 #region//---------SPEED CAP

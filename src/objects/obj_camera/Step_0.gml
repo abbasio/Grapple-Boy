@@ -1,5 +1,7 @@
 /// @description Update Camera
 
+
+
 #region//---------UPDATE DESTINATION 
 
 if (instance_exists(follow)) //If there is a player object in existence 
