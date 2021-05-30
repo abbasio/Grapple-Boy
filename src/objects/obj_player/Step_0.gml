@@ -46,20 +46,21 @@ if (key_grapple) && (state != states.swing) //If the grapple key is pressed, and
 	grappleY = y - (grapple_length); //Establishes the y position of the rope end point  
 	ropeX = x; //Establishes the x position of the rope origin at the x position of the player
 	ropeY = y; //Establishes the y position of the rope origin at the y position of the player
-	ropeAngle = point_direction(grappleX, grappleY, ropeX, ropeY);  //Angle from wherever we are to wherever we click
-	ropeLength = point_distance(grappleX, grappleY, ropeX, ropeY); //Length of rope
-	ropeAngleVelocity = (sqrt(sqr(hsp) + sqr(vsp)) * image_xscale) / 2;   //Speed of swing 
+	//ropeAngle = point_direction(grappleX, grappleY, ropeX, ropeY);  //Angle from wherever we are to wherever we click
+	//ropeLength = point_distance(grappleX, grappleY, ropeX, ropeY); //Length of rope
+	
 	grapple_point = collision_line(ropeX, ropeY, grappleX, grappleY, obj_wall, true, true)
 	
 	
 	if (grapple_point) 
 	{
-		gp_x = grapple_point.x
-		gp_y = grapple_point.y
 		ropeX = x;
 		ropeY = y;
-		//ropeAngle = point_direction(gp_x, gp_y, ropeX, ropeY);
-		//ropeLength = point_distance(gp_x, gp_y, ropeX, ropeY);
+		grappleX = grapple_point.x
+		grappleY= grapple_point.y
+		ropeAngle = point_direction(ropeX, ropeY, grappleX, grappleY);
+		ropeLength = point_distance(ropeX, ropeY, grappleX, grappleY);
+		ropeAngleVelocity = (sqrt(sqr(hsp) + sqr(vsp)) * image_xscale) / 2;   //Speed of swing 
 		ScreenShake (2,10); //Shakes the screen by 2 pixels for 10 frames
 		audio_play_sound(snd_grapple, 5, false); //Plays the grapple sound
 		state = states.swing; //Switches to the swing state - see Scripts>PlayerStateSwing
