@@ -44,16 +44,13 @@ if (place_meeting(x, y + 1, obj_boost))
 }
 //if (place_meeting (x + 1, y, obj_boost))
 //{
-	//hsp = - hsp;
+	//hsp = - hsp * 5;
 //}
 #endregion
 
 #region//---------SPEED CAP
 
-if (vsp > 10)
-{
-	vsp = 10;
-}
+vsp = clamp(vsp, -15, 15);
 #endregion
 
 

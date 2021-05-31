@@ -7,7 +7,7 @@ function PlayerStateSwing()
 	_ropeAngleAcceleration += (key_right - key_left) * 0.08
 	
 	
-	ropeLength += (key_down - key_up)
+	ropeLength += (key_down - key_up) / 2
 	if (ropeLength < 0)
 	{
 		ropeLength = 0;
@@ -18,8 +18,7 @@ function PlayerStateSwing()
 	
 	ropeAngleVelocity *= 0.99; //Dampener - we slowly reduce velocity at the top/bottom, represents air friction. Can remove.
 	
-	if (ropeAngleVelocity > 4) ropeAngleVelocity = 4;
-	if (ropeAngleVelocity < -4) ropeAngleVelocity = -4;
+	
 	
 	// Defines end of rope movement
 	ropeX = grappleX + lengthdir_x(ropeLength, ropeAngle); 
@@ -31,7 +30,11 @@ function PlayerStateSwing()
 	
 	if (place_meeting(ropeX + 1, ropeY, obj_boost))
 	{
-		ropeAngleVelocity = -ropeAngleVelocity * 1.5;
+			ropeAngleVelocity = -ropeAngleVelocity * 2;
+	}
+	else
+	{
+		ropeAngleVelocity = clamp (ropeAngleVelocity, -4, 4);
 	}
 	
 	if (key_release)
