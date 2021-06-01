@@ -29,12 +29,13 @@ menu_control = true; //Dictates whether we have control of the menu or not
 
 #region//---------ARRAY AND SELECTION
 
-menu[2] = "New Game";
-menu[1] = "Continue";
+menu[3] = "New Game";
+menu[2] = "Continue";
+menu[1] = "Level Select";
 menu[0] = "Quit";
 
 menu_items = array_length_1d(menu); //Number of menu options = number of entries into the menu array
-menu_cursor = 2; //Establishes what is currently selected in the menu
+menu_cursor = 3; //Establishes what is currently selected in the menu
 
 #endregion
 

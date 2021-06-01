@@ -46,25 +46,28 @@ if (menu_control) //If we have menu control
 
 if (menu_committed !=-1) && (menu_y > gui_height * 1.5) //If the an item has been selected and the menu has gone down 
 	{
-		switch(menu_committed) //Chooses outcome based on which menu selection was chosen
+		switch(menu_committed)                          //Chooses outcome based on which menu selection was chosen
 		{
-			case 2:									//If 'New Game' is selected
-			SlideTransition(transition_mode.NEXT);	//Start the first room
+			case 3:										  //If 'New Game' is chosen
+			SlideTransition(transition_mode.GOTO, Room1); //Start the first room
 			break; 
-			case 1:								//If 'Continue' is selected
+			case 2:										  //If 'Continue' is chosen
 				{
-					if(!file_exists(SAVEFILE)) //Checks to see if SAVEFILE exists or not
+					if(!file_exists(SAVEFILE))            //Checks to see if SAVEFILE exists or not
 					{
 						SlideTransition(transition_mode.NEXT); //If SAVEFILE doesn't exist, start the first room
 					}
-					else //If SAVEFILE does exist
+					else									   //If SAVEFILE does exist
 					{
-						var file = file_text_open_read(SAVEFILE); //Opens SAVEFILE for the purpose of reading it
-						var target = file_text_read_real(file); //Reads the real number written in SAVEFILE
-						file_text_close(file); //Closes SAVEFILE
+						var file = file_text_open_read(SAVEFILE);      //Opens SAVEFILE for the purpose of reading it
+						var target = file_text_read_real(file);        //Reads the real number written in SAVEFILE
+						file_text_close(file);                         //Closes SAVEFILE
 						SlideTransition(transition_mode.GOTO, target); //Moves to the target room written in SAVEFILE
 					}
 				}
+			break;
+			case 1:		                           //If 'Level Select' is chosen
+			SlideTransition(transition_mode.NEXT); //Go to the Level Select screen
 			break;
 			case 0:		//If 'Exit' is selected
 			game_end(); //End the game

@@ -24,6 +24,8 @@ hascontrol = true; //A variable for whether the player has control or not
 
 grapple_length = 90; //A variable for the length of the grappling hook
 
+can_grapple = 0;
+
 state = states.normal; //A variable for the initial state of the player
 
 #endregion
