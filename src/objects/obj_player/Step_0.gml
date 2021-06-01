@@ -1,4 +1,4 @@
-if(global.pause) exit;
+if(global.pause) exit; //If 'pause' is true, freeze all step events - see Objects>obj_pause>Key_Press27.gml
 
 #region //---------PLAYER INPUT
 
@@ -23,7 +23,7 @@ else //If 'hascontrol' is false, disable player control
 
 #region //---------STATES
 
-switch (state) //Switches the state of the player 
+switch (state) //Defines what happens in each player state
 {
 	case states.normal:		//If the player is in the  normal state 
 		PlayerStateFree(); //Execute the script 'PlayerStateFree'
@@ -46,22 +46,22 @@ if (key_grapple) && (state != states.swing) //If the grapple key is pressed, and
 	grapple_y = y - (grapple_length);				//Establishes the y coordinate of the rope end point, at an angle above the player  
 	rope_x = x; //Establishes the x coordinate of the rope origin, at the x position of the player
 	rope_y = y; //Establishes the y coordinate of the rope origin, at the y position of the player
-	grapple_point = collision_line(grapple_x, grapple_y, rope_x, rope_y, obj_wall, true, true)
+	grapple_point = collision_line(grapple_x, grapple_y, rope_x, rope_y, obj_wall, true, true) //Checks to see if an instance of obj_wall exists in the line between (grapple_x, grapple_y and (rope_x, rope_y)
 	
-	if (grapple_point)
+	if (grapple_point) //If an instance of obj_wall does exist in that line
 	{
-		grapple_x = grapple_point.x
-		grapple_y= grapple_point.y
-		rope_angle = point_direction(grapple_x, grapple_y, rope_x, rope_y);
-		rope_length = point_distance(grapple_x, grapple_y, rope_x, rope_y);
-		rope_angle_velocity = (sqrt(sqr(hsp) + sqr(vsp)) * image_xscale);   //Speed of swing 
-		ScreenShake (2,10); //Shakes the screen by 2 pixels for 10 frames
+		grapple_x = grapple_point.x //Sets the x coordinate of the rope end point at the x coordinate of the obj_wall instance 
+		grapple_y= grapple_point.y //Sets the y coordinate of the rope end point at the y coordinate of the obj_wall instance
+		rope_angle = point_direction(grapple_x, grapple_y, rope_x, rope_y); //Establishes the angle of the rope as the angle between the player and the grapple point
+		rope_length = point_distance(grapple_x, grapple_y, rope_x, rope_y); //Establishes the length of the rope as the distance between the player and the grapple point
+		rope_angle_velocity = (sqrt(sqr(hsp) + sqr(vsp)) * image_xscale);   //Establishes the initial speed of the swing, based on the player's current horizontal and vertical speed
+		ScreenShake (2,10); //Shakes the screen by 2 pixels for 10 frames - see Scripts>ScreenShake
 		audio_play_sound(snd_grapple, 5, false); //Plays the grapple sound
 		state = states.swing; //Switches to the swing state - see Scripts>PlayerStateSwing
 	}
 	else
 	{
-		state = states.normal;
+		state = states.normal; //If the grapple key isn't pressed, the player is in the normal state - see Scripts>PlayerStateFree
 	}
 }
 
@@ -69,59 +69,51 @@ if (key_grapple) && (state != states.swing) //If the grapple key is pressed, and
 
 #region //---------COLLISIONS
 
-
 //---------HORIZONTAL COLLISION
-
-// place_meeting checks if location will overlap,
-// x and y denote position of the player object.
-if (place_meeting(x + hsp, y, obj_wall))			// If there will be an imminent collision
+if (place_meeting(x + hsp, y, obj_wall))//If the player is about to hit a wall, based on the current x position and the current horizontal speed
 {
 	// Without the 'while' statement below, the player will be forced to stop before actually reaching the wall
 	// ! is "not" - place_meeting is collision, !place_meeting is no collision
 	// sign(hsp) will equal either 1 or -1
-	while (!place_meeting(x + sign(hsp), y, obj_wall))		// While not colliding (but collision is imminent)
+	
+	while (!place_meeting(x + sign(hsp), y, obj_wall))//As long as the player has not actually reached the wall yet
 	{
-		x += sign(hsp);										// Move 1 unit towards wall.
-		image_angle = 0;
+		x += sign(hsp); //Move the player by 1 unit towards the wall										
+		image_angle = 0; //Prevents sprite from rotating
 	}
 	
 	if (state == states.swing) //If the player is in the swing state 
 	{
-		rope_angle = point_direction(grapple_x, grapple_y, x, y); //Establishes direction of rope
+		rope_angle = point_direction(grapple_x, grapple_y, x, y); //Keeps the rope angle static
 		rope_angle_velocity = 0; //Sets the swing speed to zero
 	}
 	
-	hsp = 0;		// Set player speed to 0
-
+	hsp = 0; //Set horizontal speed to 0, once the player actually reaches the wall
 }
 
-x += hsp // The x coordinate of the player sprite is equal to the current x coordinate of the player + the horizontal speed.
-
-// The horizontal speed is above defined as _move * walk_speed OR zero, if colliding
-
+x += hsp //The x coordinate of the player is equal to the current x coordinate of the player + the horizontal speed.
 
 //---------VERTICAL COLLISION
 
 //Same as the horizontal collision code, except for y values instead of the x values.
 
-if (place_meeting(x, y + vsp, obj_wall))
+if (place_meeting(x, y + vsp, obj_wall))//If the player is about to hit a wall, based on the current y position and the current vertical speed
 {
-	while (!place_meeting(x, y + sign(vsp), obj_wall))
+	while (!place_meeting(x, y + sign(vsp), obj_wall)) //As long as the player has not actually reached the wall yet
 	{
-		y += sign(vsp);	
+		y += sign(vsp);	//Move the player by 1 unit towards the wall
 		
 	}
-	if (state == states.swing)
+	if (state == states.swing)//If the player is in the swing state 
 	{
-		rope_angle = point_direction(grapple_x, grapple_y, x, y);
-		rope_angle_velocity = 0;
+		rope_angle = point_direction(grapple_x, grapple_y, x, y); //Keeps the rope angle static
+		rope_angle_velocity = 0; //Sets the swing speed to zero
 	}
 	
-	vsp = 0;	
+	vsp = 0; //Set vertical speed to 0, once the player actually reaches the wall	
 }
 
-
-y += vsp;
+y += vsp; //The y coordinate of the player is equal to the current y coordinate of the player + the vertical speed.
 #endregion
 
 

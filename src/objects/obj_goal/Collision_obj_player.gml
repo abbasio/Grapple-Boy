@@ -1,10 +1,10 @@
 /// @description Move to next room
 
-with (obj_player) //When the player meets the goal
+with (obj_player) //Using code from the player object
 {
-	if (hascontrol) //see 'hascontrol' in the player object
+	if (hascontrol) //If the player has control - see 'hascontrol' in objects>obj_player>step_0.gml
 	{
 		hascontrol = false; //Removes control from player during the transition
-		SlideTransition(transition_mode.GOTO,other.target); //Transitions to 'target' room specified in the creation code of the goal object
+		SlideTransition(transition_mode.GOTO,other.target); //Transitions to 'target' room specified in the goal object's creation code
 	}
 }

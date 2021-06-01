@@ -1,4 +1,4 @@
-/// @description 
+/// @desc DRAW BUTTON
 
 #region//---------SET COLOR
 draw_set_color(merge_color(c_ltgrey, c_white, hover)); //Sets the color for the button to merge from light grey to white, based on the 'hover' variable
