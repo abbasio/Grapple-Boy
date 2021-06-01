@@ -2,18 +2,41 @@ function PlayerStateFree()
 {
 	
 #region //---------MOVEMENT
+
+if (place_meeting(x, y + 1, obj_wall)) 
+{
+	on_ground = true;
+}
+else
+{
+	on_ground = false;
+}
 	
 var _move = key_right - key_left;	// Direction of movement
-hsp += _move * walk_acceleration;			// Applies the walk speed modifier to the horizontal movement
-on_ground = (place_meeting(x, y + 1, obj_wall)); 
+hsp += _move * hsp_acc;
 if (_move == 0)
 {
 	var _friction = ground_friction;
-	if (!on_ground) _friction = air_friction;
-	hsp = Approach(hsp, 0, _friction);
+	if (!on_ground) _friction = air_friction
+	hsp = Approach (hsp, 0, _friction)
 }
 
-hsp = clamp(hsp, -walk_speed, walk_speed);
+
+if(!on_ground)
+{
+	hsp = clamp(hsp, -hsp_max, hsp_max);
+}
+else
+{
+	hsp = clamp(hsp, -walk_speed, walk_speed);
+}
+
+hsp += hsp_frac;
+vsp += vsp_frac;
+hsp_frac = frac(hsp);
+vsp_frac = frac(vsp);
+hsp -= hsp_frac;
+vsp -= vsp_frac;
 
 vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement 
 
@@ -22,10 +45,11 @@ vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement
 	
 #region	//---------DOUBLE JUMP
 	
-	if (place_meeting(x, y + 1, obj_wall)) //If player is on the ground
+	if (on_ground)							    //If player is on the ground
 	{
 		jumps = jumps_max;                      //The max number of jumps are available
 	}
+	
 	if ((jumps > 0) && key_jump)			    //If the jump key is pressed
 	{										  		
 		jumps -= 1						        //Then reduce number of available jumps
@@ -42,10 +66,6 @@ if (place_meeting(x, y + 1, obj_boost))
 	vsp = -vsp * 1.5;
 	jumps = 1;
 }
-//if (place_meeting (x + 1, y, obj_boost))
-//{
-	//hsp = - hsp * 5;
-//}
 #endregion
 
 #region//---------SPEED CAP
@@ -56,7 +76,7 @@ vsp = clamp(vsp, -15, 15);
 
 #region	//---------ANIMATION
 
-	if(!place_meeting(x, y + 1, obj_wall)) //If the player is not colliding with any wall (ie: is in the air)
+	if(!on_ground) //If the player is not colliding with any wall (ie: is in the air)
 	{
 
 		sprite_index = spr_jumping; //Switch to the jumping sprite

@@ -4,11 +4,17 @@ hsp = 0;  //A variable for the default horizontal speed of the player
 
 vsp = 0;  //A variable for the default vertical speed of the player
 
+hsp_frac = 0;
+
+vsp_frac = 0;
+
 grav = 0.5;  //A variable for gravity, a modifier for vertical speed
 
-walk_speed = 4;  //A variable for walk speed, a modifier for horizontal speed
+walk_speed = 5.5;  //A variable for walk speed, a modifier for horizontal speed
 
-walk_acceleration = 1.5;
+hsp_acc = 1.5;
+
+hsp_max = 6.5;
 
 ground_friction = 0.5;
 
@@ -23,8 +29,6 @@ jumps_max = 2; //A variable for the maximum number of allowed jumps
 hascontrol = true; //A variable for whether the player has control or not
 
 grapple_length = 90; //A variable for the length of the grappling hook
-
-can_grapple = 0;
 
 state = states.normal; //A variable for the initial state of the player
 

@@ -18,7 +18,7 @@ function PlayerStateSwing()
 	
 	
 	rope_angle_velocity *= 0.99; //Dampener - we slowly reduce velocity at the top/bottom, represents air friction. Can remove.
-	rope_angle_velocity = clamp(rope_angle_velocity, -6, 6);
+	rope_angle_velocity = clamp(rope_angle_velocity, -5.2, 5.2);
 	
 	
 	
