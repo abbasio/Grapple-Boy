@@ -14,8 +14,8 @@ if (instance_exists(follow)) //If there is a player object in existence
 
 #region//---------UPDATE OBJECT POSITION
 
-x += (x_toward - x) / 25; //Moves the x value of the camera from its current location to desired destination
-y += (y_toward - y) / 25; //Moves the y value of the camera from its current location to desired destination
+x += (x_toward - x) / 10; //Moves the x value of the camera from its current location to desired destination
+y += (y_toward - y) / 10; //Moves the y value of the camera from its current location to desired destination
 
 #endregion
 

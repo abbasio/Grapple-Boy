@@ -32,6 +32,9 @@ function PlayerStateSwing()
 	
 	if (place_meeting(rope_x + 1, rope_y, obj_boost))
 	{
+			audio_play_sound(snd_bounce, 2, false);
+			image_xscale *= -1;
+			grapples = grapples_max;
 			rope_angle_velocity = -rope_angle_velocity * 2;
 	}
 	

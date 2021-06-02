@@ -66,6 +66,7 @@ if (place_meeting(x, y + 1, obj_boost))
 {
 	audio_play_sound(snd_bounce, 6, false);
 	vsp = -vsp * 1.5;
+	grapples = grapples_max;
 	jumps = 1;
 }
 #endregion
