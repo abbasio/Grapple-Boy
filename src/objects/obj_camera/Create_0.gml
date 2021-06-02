@@ -13,6 +13,12 @@ y_toward = ystart;   //Designates the y location the camera moves toward
 
 cloud_layer = layer_get_id("Background_Clouds"); //Establishes layer for the background clouds
 mountain_layer = layer_get_id("Background_Mountains"); //Establishes layer for the background mountains
+
+
+cave_front = layer_get_id("cave_front");
+cave_mid = layer_get_id("cave_mid");
+cave_back = layer_get_id("cave_back");
+cave_beams = layer_get_id("cave_beams");
 //---------SCREENSHAKE
 
 shake_length = 0; //Duration of screenshake, in frames

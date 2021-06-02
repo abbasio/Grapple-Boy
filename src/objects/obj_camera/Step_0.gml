@@ -42,6 +42,8 @@ camera_set_view_pos(cam, x - view_w_half, y - view_h_half); //Places player in c
 
 #region//---------PARALLAX
 
+//---------WORLD 1
+
 if (layer_exists(cloud_layer)) //If there is a cloud layer in the background
 {
 	layer_x(cloud_layer, x / 2);
@@ -51,5 +53,30 @@ if (layer_exists(mountain_layer))
 {
 	layer_x(mountain_layer, x / 4);
 }
+
+//---------WORLD 2
+
+if (layer_exists(cave_front))
+{
+	layer_x(cave_front, x / 4);
+}
+
+if (layer_exists(cave_mid))
+{
+	layer_x(cave_mid, x / 3);
+}
+
+if (layer_exists(cave_back))
+{
+	layer_x(cave_back, x / 2);
+}
+
+if (layer_exists(cave_beams))
+{
+	layer_x(cave_beams, x / 1.5);
+}
+
+
+
 
 #endregion

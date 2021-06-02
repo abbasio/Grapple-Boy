@@ -40,8 +40,12 @@ switch (state) //Defines what happens in each player state
 
 #region //---------GRAPPLE
 
-if (key_grapple) && (state != states.swing) //If the grapple key is pressed, and we are not already in a swing state
+
+	
+if (key_grapple) && (state != states.swing) && grapples > 0 //If the grapple key is pressed, and we are not already in a swing state
+
 {
+	grapples -= 1;
 	grapple_x = x + (grapple_length * image_xscale); //Establishes the x coordinate of the rope end point, at an angle in front of the player's position
 	grapple_y = y - (grapple_length);				//Establishes the y coordinate of the rope end point, at an angle above the player  
 	rope_x = x; //Establishes the x coordinate of the rope origin, at the x position of the player

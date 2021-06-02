@@ -47,6 +47,7 @@ vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement
 	
 	if (on_ground)							    //If player is on the ground
 	{
+		grapples = grapples_max;
 		jumps = jumps_max;                      //The max number of jumps are available
 	}
 	
@@ -63,6 +64,7 @@ vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement
 
 if (place_meeting(x, y + 1, obj_boost))
 {
+	audio_play_sound(snd_bounce, 6, false);
 	vsp = -vsp * 1.5;
 	jumps = 1;
 }
@@ -96,7 +98,7 @@ vsp = clamp(vsp, -15, 15);
 	}
 	else //When the player is on the ground
 	{
-		if (sprite_index == spr_jumping)
+		if (sprite_index == spr_jumping) 
 			audio_play_sound(snd_landing,2,false);
 			
 		image_speed = 1; //Allows animation

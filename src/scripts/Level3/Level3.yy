@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Level Select",
-    "path": "folders/Scripts/Level Select.yy",
+    "name": "World 1",
+    "path": "folders/Scripts/Level Select/World 1.yy",
   },
   "resourceVersion": "1.0",
   "name": "Level3",

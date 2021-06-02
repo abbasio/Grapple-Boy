@@ -4,6 +4,7 @@
 /// @arg height
 /// @arg text
 ///@arg script
+///@arg room
 
 function CreateButton(){
 var _x = argument0;
@@ -12,6 +13,7 @@ var _width = argument2;
 var _height = argument3;
 var _text = argument4;
 var _script = argument5;
+
 
 //---------CREATE BUTTON
 
@@ -24,6 +26,7 @@ with (_button)
 	button_height = _height;
 	text = _text;
 	script = _script;
+	
 }
 
 return _button

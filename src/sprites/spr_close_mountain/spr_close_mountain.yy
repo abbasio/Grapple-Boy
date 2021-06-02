@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Background",
-    "path": "folders/Sprites/Background.yy",
+    "name": "World 1",
+    "path": "folders/Sprites/Background/World 1.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_close_mountain",
