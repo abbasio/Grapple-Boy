@@ -4,6 +4,6 @@
 
 #region//---------TRANSITION
 
-SlideTransition(transition_mode.DEATH); //Once Alarm [0] goes off, execute the death transition - see Objects>obj_transition>Step_0.gml
-										
+SlideTransition(transition_mode.DEATH); //Once Alarm [0] goes off, execute the death transition
+										//See Objects>obj_transition>Step_0.gml
 #endregion

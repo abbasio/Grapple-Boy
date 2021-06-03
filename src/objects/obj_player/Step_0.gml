@@ -40,20 +40,18 @@ switch (state) //Defines what happens in each player state
 
 #region //---------GRAPPLE
 
-
-	
-if (key_grapple) && (state != states.swing) && grapples > 0 //If the grapple key is pressed, and we are not already in a swing state
+if (key_grapple) && (state != states.swing)  //If the grapple key is pressed, and we are not already in a swing state
 
 {
-	grapples -= 1;
 	grapple_x = x + (grapple_length * image_xscale); //Establishes the x coordinate of the rope end point, at an angle in front of the player's position
 	grapple_y = y - (grapple_length);				//Establishes the y coordinate of the rope end point, at an angle above the player  
 	rope_x = x; //Establishes the x coordinate of the rope origin, at the x position of the player
 	rope_y = y; //Establishes the y coordinate of the rope origin, at the y position of the player
 	grapple_point = collision_line(grapple_x, grapple_y, rope_x, rope_y, obj_wall, true, true) //Checks to see if an instance of obj_wall exists in the line between (grapple_x, grapple_y and (rope_x, rope_y)
 	
-	if (grapple_point) //If an instance of obj_wall does exist in that line
+	if (grapple_point) && (grapples > 0) //If an instance of obj_wall does exist in that line, and we have grapple charges
 	{
+		grapples -= 1;
 		grapple_x = grapple_point.x //Sets the x coordinate of the rope end point at the x coordinate of the obj_wall instance 
 		grapple_y= grapple_point.y //Sets the y coordinate of the rope end point at the y coordinate of the obj_wall instance
 		rope_angle = point_direction(grapple_x, grapple_y, rope_x, rope_y); //Establishes the angle of the rope as the angle between the player and the grapple point

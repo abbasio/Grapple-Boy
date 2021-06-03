@@ -59,7 +59,6 @@ vsp = vsp + grav;					// Applies the gravity modifier to the vertical movement
 	
 #endregion	
 
-
 #region//---------BOUNCE
 
 if (place_meeting(x, y + 1, obj_boost))
@@ -74,37 +73,42 @@ if (place_meeting(x, y + 1, obj_boost))
 #region//---------SPEED CAP
 
 vsp = clamp(vsp, -15, 15);
-#endregion
 
+#endregion
 
 #region	//---------ANIMATION
 
-	if(!on_ground) //If the player is not colliding with any wall (ie: is in the air)
+if(!on_ground) //If the player is not on the ground (ie: is in the air)
+{
+	sprite_index = spr_jumping; //Switch to the jumping sprite
+	image_speed = 0; //Prevent animation
+	image_index = (sign(vsp) > 0);
+	
+	if (hsp != 0)
 	{
-
-		sprite_index = spr_jumping; //Switch to the jumping sprite
-		if (hsp != 0)
-		{
-			image_xscale = sign(hsp);
-		}
-		image_speed = 0; //Prevent animation
-		image_index = (sign(vsp) > 0);
-		
-		if(sign(vsp) > 0) 
-			image_index = 1;
-		
-		else 
-			image_index = 0; //If the player is going up, use the first frame of the animation
-																 //Otherwise, use the second frame of the animation
+		image_xscale = sign(hsp);
 	}
+	
+	if(sign(vsp) > 0) //If the player is going up
+	{
+		image_index = 1; //Use the first frame of animation
+	}
+	else 
+	{
+		image_index = 0; //Otherwise, use the second frame of animation
+	}	
+	
+}
 	else //When the player is on the ground
 	{
-		if (sprite_index == spr_jumping) 
-			audio_play_sound(snd_landing,2,false);
-			
 		image_speed = 1; //Allows animation
 		
-		if (hsp == 0)	//If the player is still
+		if (sprite_index == spr_jumping) //If the current player sprite is equal to the jumping sprite
+		{								
+			audio_play_sound(snd_landing,2,false); //Play the landing sound
+		}
+			
+		if (hsp == 0)	//If the player is not moving horizontally
 		{				//Note: double equals is for checking whether something is equal to 0, single equals is for assigning a value of 0
 			sprite_index = spr_player; //Use the regular player sprite
 		}
@@ -114,8 +118,7 @@ vsp = clamp(vsp, -15, 15);
 			sprite_index = spr_running; //Use the running sprite 
 		
 		}
-
 	}
+#endregion
 
 }
-#endregion
