@@ -19,6 +19,12 @@ cave_front = layer_get_id("cave_front");
 cave_mid = layer_get_id("cave_mid");
 cave_back = layer_get_id("cave_back");
 cave_beams = layer_get_id("cave_beams");
+
+ice_front = layer_get_id("ice_clouds_front");
+ice_mid = layer_get_id("ice_clouds_mid");
+ice_fog = layer_get_id("ice_fog");
+ice_mountain = layer_get_id("ice_mountain");
+ice_back = layer_get_id("ice_clouds_back");
 //---------SCREENSHAKE
 
 shake_length = 0; //Duration of screenshake, in frames

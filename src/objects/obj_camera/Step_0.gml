@@ -76,7 +76,27 @@ if (layer_exists(cave_beams))
 	layer_x(cave_beams, x / 1.5);
 }
 
+//---------WORLD 3
 
+if(layer_exists(ice_front))
+{
+	layer_x(ice_front, x / 4);
+}
+
+if(layer_exists(ice_mid))
+{
+	layer_x(ice_mid, x / 3);
+}
+
+if(layer_exists(ice_mountain))
+{
+	layer_x(ice_mountain, x / 1.33);
+}
+
+if(layer_exists(ice_back))
+{
+	layer_x(ice_back, x / 1.2);
+}
 
 
 #endregion
