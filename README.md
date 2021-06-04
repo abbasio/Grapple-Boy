@@ -16,8 +16,12 @@ The vast majority of actual code can be found in .gml files under src>objects an
 Assets used: 
 
 [Grassy Mountains Parallax Background by vnitti](https://vnitti.itch.io/grassy-mountains-parallax-background)
+
 [Glacial Mountains Parallax Background by vnitti](https://vnitti.itch.io/glacial-mountains-parallax-background)
+
 [Demon Woods Parallax Background by Aethrall](https://aethrall.itch.io/demon-woods-parallax-background)
+
 [Pixel Art Cave Background by Lil Cthulhu](https://lil-cthulhu.itch.io/pixel-art-cave-background)
+
 [Mine pico-platformer tileset by analogstudios_](https://analogstudios.itch.io/mine-pico-platformer-tileset)
 
