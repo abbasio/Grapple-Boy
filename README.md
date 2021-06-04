@@ -9,8 +9,15 @@ Each commit features a new concept that I have learned, applied, and clearly doc
 
 The vast majority of actual code can be found in .gml files under src>objects and src>scripts
 
-Here is a link to the game itself, in it's current state: https://github.com/Om-Abb/Test/blob/main/src/Test.zip
+[Here is a link to the game itself, in it's current state](https://github.com/Om-Abb/Test/blob/main/src/Test.zip)
 
-Video log of progress available here: https://www.youtube.com/watch?v=4FOur-R5hIk&list=PLxv1Ve5yyJV5ckg3dkQpk9c4pfJhF8aF3
+[Video log of progress available here](https://www.youtube.com/watch?v=4FOur-R5hIk&list=PLxv1Ve5yyJV5ckg3dkQpk9c4pfJhF8aF3)
 
-Assets used: https://vnitti.itch.io/grassy-mountains-parallax-background
+Assets used: 
+
+[Grassy Mountains Parallax Background by vnitti](https://vnitti.itch.io/grassy-mountains-parallax-background)
+[Glacial Mountains Parallax Background by vnitti](https://vnitti.itch.io/glacial-mountains-parallax-background)
+[Demon Woods Parallax Background by Aethrall](https://aethrall.itch.io/demon-woods-parallax-background)
+[Pixel Art Cave Background by Lil Cthulhu](https://lil-cthulhu.itch.io/pixel-art-cave-background)
+[Mine pico-platformer tileset by analogstudios_](https://analogstudios.itch.io/mine-pico-platformer-tileset)
+
