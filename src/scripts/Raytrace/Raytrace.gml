@@ -9,7 +9,6 @@ function Raytrace(){
 	var res = argument5; // how many pixels to check at a time. 1 = most accurate, slowest
 
 	var coords; // array to store final coords
-	coords[0] = 0;
 	var dir = point_direction(x0, y0, x1, y1);
 
 	while (true) {
@@ -21,7 +20,7 @@ function Raytrace(){
 	    }
 		
 		if(point_distance(x0, y0, x1, y1) <= 1) {
-			return 0;
+			return noone;
 		}
     
 	    // else, increment the line one more time
