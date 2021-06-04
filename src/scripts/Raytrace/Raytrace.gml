@@ -20,7 +20,7 @@ function Raytrace(){
 	    }
 		
 		if(point_distance(x0, y0, x1, y1) <= 1) {
-			return noone;
+			return 0;
 		}
     
 	    // else, increment the line one more time
