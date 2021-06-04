@@ -16,6 +16,7 @@
     {"id":{"name":"spr_sign","path":"sprites/spr_sign/spr_sign.yy",},"order":4,},
     {"id":{"name":"Level6","path":"scripts/Level6/Level6.yy",},"order":0,},
     {"id":{"name":"snd_barrier","path":"sounds/snd_barrier/snd_barrier.yy",},"order":14,},
+    {"id":{"name":"Raytrace","path":"scripts/Raytrace/Raytrace.yy",},"order":4,},
     {"id":{"name":"spr_hookpoint","path":"sprites/spr_hookpoint/spr_hookpoint.yy",},"order":0,},
     {"id":{"name":"ts_mine","path":"tilesets/ts_mine/ts_mine.yy",},"order":0,},
     {"id":{"name":"Level11","path":"scripts/Level11/Level11.yy",},"order":0,},
