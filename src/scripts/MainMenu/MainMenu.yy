@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Main Menu",
+    "path": "folders/Scripts/Level Select/Main Menu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "RayTrace",
+  "name": "MainMenu",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -14,4 +14,6 @@ CreateButton (button_x, 40 + (height + 40) * 4, width, height, "Level 5", Level5
 
 CreateButton (button_x * 1.8, 40 + (height + 40) * 4, width, height, "Next ->", WorldTwo);
 
+CreateButton (button_x * 0.2, 40 + (height + 40) * 4, width, height, "<- Main Menu", MainMenu);
+
 #endregion

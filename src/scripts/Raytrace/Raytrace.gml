@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function Raytrace(){
+function RayTrace(){
 	var x0 = argument0; // start x pos
 	var y0 = argument1; // start y pos
 	var x1 = argument2; // end y pos

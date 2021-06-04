@@ -1,1 +1,1 @@
-state = states.death;
+state = states.death; //Kills the player if they fall outside the room
