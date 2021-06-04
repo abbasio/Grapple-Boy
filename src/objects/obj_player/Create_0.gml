@@ -28,7 +28,7 @@ jumps_max = 2; //A variable for the maximum number of allowed jumps
 
 hascontrol = true; //A variable for whether the player has control or not
 
-grapple_length = 90; //A variable for the length of the grappling hook
+grapple_length = 120; //A variable for the length of the grappling hook
 
 grapples = 0;
 
@@ -47,6 +47,7 @@ window_set_cursor(cr_none); //Removes cursor
 #endregion
 
 #region//---------STATES
+
 enum states //Establishes the number of states
 {
 	normal, //'Normal' state - see Scripts>PlayerStateFree
