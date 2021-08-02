@@ -11,6 +11,16 @@ else
 {
 	on_ground = false;
 }
+
+if (on_ground) && place_meeting(x, y, obj_ice) 
+{
+	on_ice = true;
+}
+else
+{
+	on_ice = false;
+}
+
 	
 var _move = key_right - key_left;	// Direction of movement
 hsp += _move * hsp_acc;
@@ -18,17 +28,30 @@ if (_move == 0)
 {
 	var _friction = ground_friction;
 	if (!on_ground) _friction = air_friction
+	if (on_ground) && (on_ice)
+	{
+		_friction = ice_friction
+	}
+	
 	hsp = Approach (hsp, 0, _friction)
 }
 
 
 if(!on_ground)
 {
+	
 	hsp = clamp(hsp, -hsp_max, hsp_max);
 }
 else
 {
-	hsp = clamp(hsp, -walk_speed, walk_speed);
+	if (on_ice)
+	{
+		hsp = clamp(hsp, -hsp_ice, hsp_ice);
+	}
+	else
+	{
+		hsp = clamp(hsp, -walk_speed, walk_speed);
+	}
 }
 
 hsp += hsp_frac;

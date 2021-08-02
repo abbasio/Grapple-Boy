@@ -16,9 +16,13 @@ hsp_acc = 1.5; //A variable for the horizontal acceleration of the player
 
 hsp_max = 6.5; //A variable for the maximum horizontal speed of the player
 
+hsp_ice = 7;
+
 ground_friction = 0.5; //A variable for ground friction
 
 air_friction = 0.2; //A variable for air friction
+
+ice_friction = 0; //A variable for ice friction
 
 jump_speed = 8 //A variable for jump speed, a modifier for vertical speed
 

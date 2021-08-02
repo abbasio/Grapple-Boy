@@ -26,6 +26,7 @@ x = clamp(x, view_w_half + buff, room_width - view_w_half - buff); //Prevents ca
 y = clamp(y, view_h_half + buff, room_height - view_h_half - buff); //Prevents camera from moving beyond edge of the room vertically
 
 #endregion
+
 #region//---------SCREENSHAKE
 
 x += random_range(-shake_remain, shake_remain);
