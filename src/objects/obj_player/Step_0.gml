@@ -3,21 +3,22 @@ if(global.pause) exit; //If 'pause' is true, freeze all step events - see Object
 #region //---------PLAYER INPUT
 
 if (hascontrol) //Variable for player control - if 'hascontrol' is true, establish the player controls as follows
-{
-	key_left = keyboard_check(ord("A")) || (gamepad_axis_value(0, gp_axislh) < 0);				// Establishes 'A' or left on the joystick as the left key
-	key_right = keyboard_check(ord("D")) || (gamepad_axis_value(0, gp_axislh) > 0);				// Establishes 'D' or right on the joystick as the right key
-	key_jump = keyboard_check_pressed(vk_space) || (gamepad_button_check_pressed(0, gp_face1));	//Establishes 'space' or the bottom face button as the jump key	
-	key_grapple = mouse_check_button_pressed(mb_left) || (gamepad_button_check_pressed(0, gp_shoulderrb)); //Establishes left mouse click or right shoulder button as the grapple key
-	key_release = mouse_check_button_pressed(mb_right) || (gamepad_button_check_pressed(0, gp_shoulderlb)); //Establishes right mouse click or left shoulder button as the grapple release key
-}
+	{
+		key_left = keyboard_check(vk_left) || (gamepad_axis_value(0, gp_axislh) < 0); // Establishes left arrow key or left on the joystick as the left key
+		key_right = keyboard_check(vk_right) || (gamepad_axis_value(0, gp_axislh) > 0); // Establishes right arrow key or right on the joystick as the right key
+		key_jump = keyboard_check_pressed(vk_space) || (gamepad_button_check_pressed(0, gp_face1));	//Establishes space key or the bottom face button as the jump key	
+		key_grapple = keyboard_check_pressed(vk_shift) || (gamepad_button_check_pressed(0, gp_shoulderrb)); //Establishes shift key or right shoulder button as the grapple key
+		key_release = keyboard_check_pressed(vk_space) || (gamepad_button_check_pressed(0, gp_shoulderlb)); //Establishes space key or left shoulder button as the grapple release key
+	}
+
 else //If 'hascontrol' is false, disable player control
-{
-	key_right = 0
-	key_left = 0
-	key_jump = 0
-	key_grapple = 0
-	key_release = 0
-}
+	{
+		key_right = 0
+		key_left = 0
+		key_jump = 0
+		key_grapple = 0
+		key_release = 0
+	}
 
 #endregion
 

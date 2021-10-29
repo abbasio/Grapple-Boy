@@ -10,11 +10,11 @@ vsp_frac = 0;
 
 grav = 0.5;  //A variable for gravity, a modifier for vertical speed
 
-walk_speed = 5.5;  //A variable for walk speed, a modifier for horizontal speed
+walk_speed = 4.5;  //A variable for walk speed, a modifier for horizontal speed
 
 hsp_acc = 1.5; //A variable for the horizontal acceleration of the player
 
-hsp_max = 6.5; //A variable for the maximum horizontal speed of the player
+hsp_max = 5.5; //A variable for the maximum horizontal speed of the player
 
 hsp_ice = 7;
 
@@ -38,7 +38,7 @@ grapples = 0;
 
 grapples_max = 2;
 
-state = states.normal; //A variable for the state of the player
+
 
 #endregion
 
@@ -51,6 +51,8 @@ window_set_cursor(cr_none); //Removes cursor
 #endregion
 
 #region//---------STATES
+
+state = states.normal; //A variable for the starting state of the player
 
 enum states //Establishes the number of states
 {

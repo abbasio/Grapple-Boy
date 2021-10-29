@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "World 3",
-    "path": "folders/Scripts/Level Select/World 3.yy",
+    "path": "folders/Rooms/Level Select/World 3.yy",
   },
   "resourceVersion": "1.0",
   "name": "Level13",

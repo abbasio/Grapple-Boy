@@ -1,17 +1,17 @@
-function PlayerStateSwing()
-{
+function PlayerStateSwing(){
 	key_up = keyboard_check(ord("W"));
 	key_down = keyboard_check(ord("S"));
 	
 	var _rope_angleAcceleration = -0.2 * dcos(rope_angle);	//Defines how quickly player is accelerating along angles of pendulum's circle. dcos defines cosine, using degrees
-	_rope_angleAcceleration += (key_right - key_left) * 0.03
+	_rope_angleAcceleration += (key_right - key_left) * 0.01
 	
 	
 	rope_length += (key_down - key_up) / 2
-	if (rope_length < 0)
-	{
+	
+	if (rope_length < 0){
 		rope_length = 0;
 	}
+	
 	rope_angle_velocity += _rope_angleAcceleration;			//Rope velocity is equal to the intial velocity (0) plus the acceleration
 	rope_angle += rope_angle_velocity;							//Changes rope angle
 	
@@ -30,17 +30,15 @@ function PlayerStateSwing()
 	hsp = rope_x - x; 
 	vsp = rope_y - y;
 	
-	if (place_meeting(rope_x + 1, rope_y, obj_boost))
-	{
-			audio_play_sound(snd_bounce, 2, false);
-			image_xscale *= -1;
-			grapples = grapples_max;
-			rope_angle_velocity = -rope_angle_velocity * 2;
+	if (place_meeting(rope_x + 1, rope_y, obj_boost)){
+		audio_play_sound(snd_bounce, 2, false);
+		image_xscale *= -1;
+		grapples = grapples_max;
+		rope_angle_velocity = -rope_angle_velocity * 2;
 	}
 	
 		
-	if (key_release)
-	{
+	if (key_release){
 		state = states.normal 
 		jumps = 1;
 		hsp = Approach(hsp, 0, air_friction);
